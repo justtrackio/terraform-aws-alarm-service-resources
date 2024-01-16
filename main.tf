@@ -1,7 +1,7 @@
 locals {
   dimensions = {
-    ClusterName = module.alarm_label.environment
-    ServiceName = "${module.alarm_label.stage}-${module.alarm_label.name}"
+    ClusterName = module.ecs_label.environment
+    ServiceName = module.ecs_label.id
   }
 }
 
@@ -9,9 +9,16 @@ module "alarm_label" {
   source  = "justtrackio/label/null"
   version = "0.26.0"
 
-  label_order = var.label_orders.ecs
+  context     = module.this.context
+  label_order = var.label_orders.cloudwatch
+}
 
-  context = module.this.context
+module "ecs_label" {
+  source  = "justtrackio/label/null"
+  version = "0.26.0"
+
+  context     = module.this.context
+  label_order = var.label_orders.ecs
 }
 
 module "cpu_average" {
