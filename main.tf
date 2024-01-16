@@ -1,7 +1,7 @@
 locals {
   dimensions = {
     ClusterName = module.alarm_label.environment
-    ServiceName = module.alarm_label.id
+    ServiceName = "${module.alarm_label.stage}-${module.alarm_label.name}"
   }
 }
 
