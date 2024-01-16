@@ -1,6 +1,6 @@
 locals {
   dimensions = {
-    ClusterName = module.ecs_label.environment
+    ClusterName = var.cluster_name
     ServiceName = module.ecs_label.id
   }
 }

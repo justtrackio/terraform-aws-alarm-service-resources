@@ -1,3 +1,8 @@
+variable "cluster_name" {
+  type        = string
+  description = "Name of the ECS cluster"
+}
+
 variable "cpu_average" {
   type = object({
     datapoints_to_alarm = optional(number)
