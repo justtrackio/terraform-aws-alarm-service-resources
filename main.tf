@@ -5,7 +5,7 @@ locals {
   }
 }
 
-module "alarm_label" {
+module "cloudwatch_label" {
   source  = "justtrackio/label/null"
   version = "0.26.0"
 
@@ -25,7 +25,7 @@ module "cpu_average" {
   source  = "terraform-aws-modules/cloudwatch/aws//modules/metric-alarm"
   version = "5.1.0"
 
-  alarm_name          = "${module.alarm_label.id}-cpu-average"
+  alarm_name          = "${module.cloudwatch_label.id}-cpu-average"
   treat_missing_data  = var.treat_missing_data
   comparison_operator = "GreaterThanThreshold"
   threshold           = var.cpu_average.threshold
@@ -44,7 +44,7 @@ module "cpu_maximum" {
   source  = "terraform-aws-modules/cloudwatch/aws//modules/metric-alarm"
   version = "5.1.0"
 
-  alarm_name          = "${module.alarm_label.id}-cpu-maximum"
+  alarm_name          = "${module.cloudwatch_label.id}-cpu-maximum"
   treat_missing_data  = var.treat_missing_data
   comparison_operator = "GreaterThanThreshold"
   threshold           = var.cpu_maximum.threshold
@@ -63,7 +63,7 @@ module "memory_average" {
   source  = "terraform-aws-modules/cloudwatch/aws//modules/metric-alarm"
   version = "5.1.0"
 
-  alarm_name          = "${module.alarm_label.id}-memory-average"
+  alarm_name          = "${module.cloudwatch_label.id}-memory-average"
   treat_missing_data  = var.treat_missing_data
   comparison_operator = "GreaterThanThreshold"
   threshold           = var.memory_average.threshold
@@ -82,7 +82,7 @@ module "memory_maximum" {
   source  = "terraform-aws-modules/cloudwatch/aws//modules/metric-alarm"
   version = "5.1.0"
 
-  alarm_name          = "${module.alarm_label.id}-memory-maximum"
+  alarm_name          = "${module.cloudwatch_label.id}-memory-maximum"
   treat_missing_data  = var.treat_missing_data
   comparison_operator = "GreaterThanThreshold"
   threshold           = var.memory_maximum.threshold
