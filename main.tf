@@ -1,4 +1,5 @@
 locals {
+  alarm_topic_arn = var.alarm_topic_arn != null ? var.alarm_topic_arn : "arn:aws:sns:${module.this.aws_region}:${module.this.aws_account_id}:${module.this.environment}-alarms"
   dimensions = {
     ClusterName = var.cluster_name
     ServiceName = module.ecs_label.id
@@ -23,7 +24,7 @@ module "ecs_label" {
 
 module "cpu_average" {
   source  = "terraform-aws-modules/cloudwatch/aws//modules/metric-alarm"
-  version = "5.1.0"
+  version = "5.3.1"
 
   alarm_name          = "${module.cloudwatch_label.id}-cpu-average"
   treat_missing_data  = var.treat_missing_data
@@ -38,11 +39,14 @@ module "cpu_average" {
   statistic   = "Average"
   dimensions  = local.dimensions
   tags        = module.this.tags
+
+  alarm_actions = [local.alarm_topic_arn]
+  ok_actions    = [local.alarm_topic_arn]
 }
 
 module "cpu_maximum" {
   source  = "terraform-aws-modules/cloudwatch/aws//modules/metric-alarm"
-  version = "5.1.0"
+  version = "5.3.1"
 
   alarm_name          = "${module.cloudwatch_label.id}-cpu-maximum"
   treat_missing_data  = var.treat_missing_data
@@ -57,11 +61,14 @@ module "cpu_maximum" {
   statistic   = "Maximum"
   dimensions  = local.dimensions
   tags        = module.this.tags
+
+  alarm_actions = [local.alarm_topic_arn]
+  ok_actions    = [local.alarm_topic_arn]
 }
 
 module "memory_average" {
   source  = "terraform-aws-modules/cloudwatch/aws//modules/metric-alarm"
-  version = "5.1.0"
+  version = "5.3.1"
 
   alarm_name          = "${module.cloudwatch_label.id}-memory-average"
   treat_missing_data  = var.treat_missing_data
@@ -76,11 +83,14 @@ module "memory_average" {
   statistic   = "Average"
   dimensions  = local.dimensions
   tags        = module.this.tags
+
+  alarm_actions = [local.alarm_topic_arn]
+  ok_actions    = [local.alarm_topic_arn]
 }
 
 module "memory_maximum" {
   source  = "terraform-aws-modules/cloudwatch/aws//modules/metric-alarm"
-  version = "5.1.0"
+  version = "5.3.1"
 
   alarm_name          = "${module.cloudwatch_label.id}-memory-maximum"
   treat_missing_data  = var.treat_missing_data
@@ -95,4 +105,7 @@ module "memory_maximum" {
   statistic   = "Maximum"
   dimensions  = local.dimensions
   tags        = module.this.tags
+
+  alarm_actions = [local.alarm_topic_arn]
+  ok_actions    = [local.alarm_topic_arn]
 }
