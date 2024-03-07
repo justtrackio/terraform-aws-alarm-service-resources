@@ -23,7 +23,7 @@ module "ecs_label" {
 
 module "cpu_average" {
   source  = "terraform-aws-modules/cloudwatch/aws//modules/metric-alarm"
-  version = "5.1.0"
+  version = "5.3.1"
 
   alarm_name          = "${module.cloudwatch_label.id}-cpu-average"
   treat_missing_data  = var.treat_missing_data
@@ -42,7 +42,7 @@ module "cpu_average" {
 
 module "cpu_maximum" {
   source  = "terraform-aws-modules/cloudwatch/aws//modules/metric-alarm"
-  version = "5.1.0"
+  version = "5.3.1"
 
   alarm_name          = "${module.cloudwatch_label.id}-cpu-maximum"
   treat_missing_data  = var.treat_missing_data
@@ -61,7 +61,7 @@ module "cpu_maximum" {
 
 module "memory_average" {
   source  = "terraform-aws-modules/cloudwatch/aws//modules/metric-alarm"
-  version = "5.1.0"
+  version = "5.3.1"
 
   alarm_name          = "${module.cloudwatch_label.id}-memory-average"
   treat_missing_data  = var.treat_missing_data
@@ -80,7 +80,7 @@ module "memory_average" {
 
 module "memory_maximum" {
   source  = "terraform-aws-modules/cloudwatch/aws//modules/metric-alarm"
-  version = "5.1.0"
+  version = "5.3.1"
 
   alarm_name          = "${module.cloudwatch_label.id}-memory-maximum"
   treat_missing_data  = var.treat_missing_data
