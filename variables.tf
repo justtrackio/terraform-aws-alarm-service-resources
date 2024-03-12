@@ -1,3 +1,9 @@
+variable "alarm_topic_arn" {
+  type        = string
+  description = "The ARN of the SNS topic to receive the alerts"
+  default     = null
+}
+
 variable "cluster_name" {
   type        = string
   description = "Name of the ECS cluster"
