@@ -1,3 +1,10 @@
+## [1.1.0](https://github.com/justtrackio/terraform-aws-alarm-service-resources/compare/v1.0.1...v1.1.0) (2024-04-22)
+
+
+### Features
+
+* add tags and severity to alarms ([#15](https://github.com/justtrackio/terraform-aws-alarm-service-resources/issues/15)) ([f546ba7](https://github.com/justtrackio/terraform-aws-alarm-service-resources/commit/f546ba7a16a7bc199c8cf6a42a4e0619f023dfd9))
+
 ## [1.0.1](https://github.com/justtrackio/terraform-aws-alarm-service-resources/compare/v1.0.0...v1.0.1) (2024-03-12)
 
 
