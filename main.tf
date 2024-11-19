@@ -27,9 +27,9 @@ module "cpu_average" {
   version = "5.3.1"
 
   alarm_name = "${module.cloudwatch_label.id}-cpu-average"
-  alarm_description = jsonencode(merge(module.this.tags, {
-    Severity = "warning"
-  }))
+  alarm_description = jsonencode(merge({
+    Priority = var.alarm_priority
+  }, jsondecode(var.alarm_description)))
   treat_missing_data  = var.treat_missing_data
   comparison_operator = "GreaterThanThreshold"
   threshold           = var.cpu_average.threshold
@@ -52,9 +52,9 @@ module "cpu_maximum" {
   version = "5.3.1"
 
   alarm_name = "${module.cloudwatch_label.id}-cpu-maximum"
-  alarm_description = jsonencode(merge(module.this.tags, {
-    Severity = "warning"
-  }))
+  alarm_description = jsonencode(merge({
+    Priority = var.alarm_priority
+  }, jsondecode(var.alarm_description)))
   treat_missing_data  = var.treat_missing_data
   comparison_operator = "GreaterThanThreshold"
   threshold           = var.cpu_maximum.threshold
@@ -77,9 +77,9 @@ module "memory_average" {
   version = "5.3.1"
 
   alarm_name = "${module.cloudwatch_label.id}-memory-average"
-  alarm_description = jsonencode(merge(module.this.tags, {
-    Severity = "warning"
-  }))
+  alarm_description = jsonencode(merge({
+    Priority = var.alarm_priority
+  }, jsondecode(var.alarm_description)))
   treat_missing_data  = var.treat_missing_data
   comparison_operator = "GreaterThanThreshold"
   threshold           = var.memory_average.threshold
@@ -102,9 +102,9 @@ module "memory_maximum" {
   version = "5.3.1"
 
   alarm_name = "${module.cloudwatch_label.id}-memory-maximum"
-  alarm_description = jsonencode(merge(module.this.tags, {
-    Severity = "warning"
-  }))
+  alarm_description = jsonencode(merge({
+    Priority = var.alarm_priority
+  }, jsondecode(var.alarm_description)))
   treat_missing_data  = var.treat_missing_data
   comparison_operator = "GreaterThanThreshold"
   threshold           = var.memory_maximum.threshold

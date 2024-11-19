@@ -1,3 +1,15 @@
+variable "alarm_description" {
+  type        = string
+  description = "The description for the alarm"
+  default     = null
+}
+
+variable "alarm_priority" {
+  type        = string
+  description = "The priority level of the alarm (e.g. info, warning, critical)"
+  default     = "info"
+}
+
 variable "alarm_topic_arn" {
   type        = string
   description = "The ARN of the SNS topic to receive the alerts"
