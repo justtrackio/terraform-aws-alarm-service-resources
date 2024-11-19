@@ -1,3 +1,10 @@
+## [1.2.0](https://github.com/justtrackio/terraform-aws-alarm-service-resources/compare/v1.1.0...v1.2.0) (2024-11-19)
+
+
+### Features
+
+* add alarm levels ([#37](https://github.com/justtrackio/terraform-aws-alarm-service-resources/issues/37)) ([562b1ea](https://github.com/justtrackio/terraform-aws-alarm-service-resources/commit/562b1ea99410177b23d6b740463a2c7e4011372b))
+
 ## [1.1.0](https://github.com/justtrackio/terraform-aws-alarm-service-resources/compare/v1.0.1...v1.1.0) (2024-04-22)
 
 
