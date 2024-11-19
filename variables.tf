@@ -1,5 +1,5 @@
 variable "alarm_description" {
-  type        = string
+  type        = any
   description = "The description for the alarm"
   default     = null
 }
