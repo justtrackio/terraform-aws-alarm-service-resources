@@ -24,7 +24,7 @@ module "ecs_label" {
 
 module "cpu_average" {
   source  = "terraform-aws-modules/cloudwatch/aws//modules/metric-alarm"
-  version = "5.3.1"
+  version = "5.7.1"
 
   alarm_name = "${module.cloudwatch_label.id}-cpu-average"
   alarm_description = jsonencode(merge({
@@ -49,7 +49,7 @@ module "cpu_average" {
 
 module "cpu_maximum" {
   source  = "terraform-aws-modules/cloudwatch/aws//modules/metric-alarm"
-  version = "5.3.1"
+  version = "5.7.1"
 
   alarm_name = "${module.cloudwatch_label.id}-cpu-maximum"
   alarm_description = jsonencode(merge({
@@ -74,7 +74,7 @@ module "cpu_maximum" {
 
 module "memory_average" {
   source  = "terraform-aws-modules/cloudwatch/aws//modules/metric-alarm"
-  version = "5.3.1"
+  version = "5.7.1"
 
   alarm_name = "${module.cloudwatch_label.id}-memory-average"
   alarm_description = jsonencode(merge({
@@ -99,7 +99,7 @@ module "memory_average" {
 
 module "memory_maximum" {
   source  = "terraform-aws-modules/cloudwatch/aws//modules/metric-alarm"
-  version = "5.3.1"
+  version = "5.7.1"
 
   alarm_name = "${module.cloudwatch_label.id}-memory-maximum"
   alarm_description = jsonencode(merge({
